@@ -1,26 +1,38 @@
-import { useState } from 'react'
+import React from 'react'
+import Hero3D from './components/Hero3D'
+import About from './components/About'
+import Projects from './components/Projects'
+import Contact from './components/Contact'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-slate-950 text-white">
+      {/* Nav */}
+      <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-slate-950/50 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-10">
+          <a href="#home" className="text-lg font-semibold tracking-tight">
+            <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-400 bg-clip-text text-transparent">Kevin</span>
+          </a>
+          <nav className="hidden items-center gap-6 text-sm text-slate-300 sm:flex">
+            <a href="#about" className="transition hover:text-white">About</a>
+            <a href="#projects" className="transition hover:text-white">Projects</a>
+            <a href="#contact" className="transition hover:text-white">Contact</a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      {/* Content */}
+      <main>
+        <Hero3D />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 bg-slate-950 py-10 text-center text-sm text-slate-400">
+        <p>© {new Date().getFullYear()} Kevin — Built with love and a bit of caffeine.</p>
+      </footer>
     </div>
   )
 }
